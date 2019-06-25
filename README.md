@@ -16,6 +16,9 @@ read data structure
 head(df,6)
 str(head)
 ```
+![](https://github.com/alansiu1929/store1/blob/master/head6.png)
+![](https://github.com/alansiu1929/store1/blob/master/str.png)
+
 # select dataframe we want
 ```
 df2<-ddply(df,.(customer_id),summarise,gender=mean(gender), most_recent_order_date=max(as.Date(date)))
@@ -26,6 +29,7 @@ show 10 new dataframe results
 ```
 head(res,10)
 ```
+![](https://github.com/alansiu1929/store1/blob/master/dateframe.png)
 
 # plot graph
 
@@ -45,14 +49,19 @@ plot graph for order counts per week
 df5<-count(df4,week)
 ggplot(df5,aes(week,n))+geom_line()+ylab("count")+ggtitle("count of orders per week")
 ```
+![](https://github.com/alansiu1929/store1/blob/master/Rplot01.png)
+
 with smooth effect
 ```
 ggplot(df5,aes(week,n))+geom_line()+geom_smooth()+ylab("count")+ggtitle("count of orders per week")
 ```
+![](https://github.com/alansiu1929/store1/blob/master/Rplot02.png)
+
 # find mean value between genders
 ```
 ddply(df,.(gender),summarise,mean(value))
 ```
+![](https://github.com/alansiu1929/store1/blob/master/mean%20value.png)
 
 # significance inference
 create a data frame for testing
@@ -68,6 +77,8 @@ perform T-testing to prove signifance (using two-sided with CI 95%)
 ```
 t.test(df6,df7)
 ```
+![](https://github.com/alansiu1929/store1/blob/master/t-test.png)
+
 p-value=0.04816<0.05
 null hypothese is rejected and there is a difference between mean order value between genders
 
@@ -86,4 +97,6 @@ perform confusion matrix
 ```
 confusionMatrix(df$predicted_gender,df$gender)
 ```
+![](https://github.com/alansiu1929/store1/blob/master/confusion%20matrix.png)
+
 The accuracy for the prediction is 0.6383. The quality of prediction is not strong enough.
