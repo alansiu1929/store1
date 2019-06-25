@@ -19,7 +19,7 @@ str(head)
 ![](https://github.com/alansiu1929/store1/blob/master/head6.png)
 ![](https://github.com/alansiu1929/store1/blob/master/str.png)
 
-# select dataframe we want
+# A. select dataframe we want
 ```
 df2<-ddply(df,.(customer_id),summarise,gender=mean(gender), most_recent_order_date=max(as.Date(date)))
 df3<-count(df,customer_id,name="order_count")
@@ -31,7 +31,7 @@ head(res,10)
 ```
 ![](https://github.com/alansiu1929/store1/blob/master/dateframe.png)
 
-# plot graph
+# B. plot graph
 
 load data visualisation package
 ```
@@ -57,7 +57,7 @@ ggplot(df5,aes(week,n))+geom_line()+geom_smooth()+ylab("count")+ggtitle("count o
 ```
 ![](https://github.com/alansiu1929/store1/blob/master/Rplot02.png)
 
-# find mean value between genders
+# C. find mean value between genders
 ```
 ddply(df,.(gender),summarise,mean(value))
 ```
@@ -82,7 +82,7 @@ t.test(df6,df7)
 p-value=0.04816<0.05
 null hypothese is rejected and there is a difference between mean order value between genders
 
-# confusion matrix
+# D. confusion matrix
 load package for confusion matrix
 ```
 library(caret)
@@ -100,3 +100,6 @@ confusionMatrix(df$predicted_gender,df$gender)
 ![](https://github.com/alansiu1929/store1/blob/master/confusion%20matrix.png)
 
 The accuracy for the prediction is 0.6383. The quality of prediction is not strong enough.
+
+# E. My favorite tool or technique
+R studio is my favorite data analysis and data visualization tool because for plotting the trend over the time, ggplot can easily give people ideas with the flow of trend by adding geom_smooth() function after the plot, I have shown the example in the section B after the first plot.
