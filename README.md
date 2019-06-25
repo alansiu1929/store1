@@ -80,7 +80,7 @@ t.test(df6,df7)
 ![](https://github.com/alansiu1929/store1/blob/master/t-test.png)
 
 p-value=0.04816<0.05
-null hypothese is rejected and there is a difference between mean order value between genders
+null hypothese is rejected and there is a difference of mean order value between genders
 
 # D. confusion matrix
 load package for confusion matrix
