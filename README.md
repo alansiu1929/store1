@@ -1,6 +1,6 @@
 **store1**
 
-This is for showing partial consume behaviours
+This is for showing partial consuming behaviours
 
 # import data
 ```
